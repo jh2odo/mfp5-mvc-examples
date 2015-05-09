@@ -94,7 +94,7 @@ sudo apt-get install phpmyadmin -y
 # New Install o Update
 cd /var/www
 wget https://github.com/jh2odo/mfp5-mvc/archive/master.zip
-sudo unzip master.zip && cd sudo mfp5-mvc-master/ && sudo mv * ../ && cd ..
+sudo unzip master.zip && cd mfp5-mvc-master/ && sudo mv * ../ && cd ..
 sudo rm -r mfp5-mvc-master && sudo rm master.zip
 
 #echo "Setting db Demo"
