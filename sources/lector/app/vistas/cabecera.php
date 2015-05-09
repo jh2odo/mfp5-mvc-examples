@@ -1,3 +1,6 @@
+<?php
+    $base = Cargador::cargar('Helper')->Base;
+?>
 <div id="cabecera">
     <div id="logo">
         <h1><span><?php echo((isset($titulo) == TRUE) ? ($titulo) : 'PrensaSeria'); ?></span></h1>
@@ -18,13 +21,13 @@
             foreach ($secciones as $seccion) {
                 $total = isset($seccion["secciones"]) == TRUE ? count($seccion["secciones"]) : 0;
                 if ($total == 0) {
-                    echo '<li><a href="noticias/' . Base::enlaceUrl($seccion["titulo"]) . '/" title="' . $seccion["titulo"] . '">' . $seccion["titulo"] . '</a></li>';
+                    echo '<li><a href="noticias/' .  $base->enlaceUrl($seccion["titulo"]) . '/" title="' . $seccion["titulo"] . '">' . $seccion["titulo"] . '</a></li>';
                 } else {
-                    echo '<li><a href="noticias/' . Base::enlaceUrl($seccion["titulo"]) . '/" title="' . $seccion["titulo"] . '">' . $seccion["titulo"] . '</a>';
+                    echo '<li><a href="noticias/' .  $base->enlaceUrl($seccion["titulo"]) . '/" title="' . $seccion["titulo"] . '">' . $seccion["titulo"] . '</a>';
                     echo '<ul>';
-                    echo '<li><a href="noticias/' . Base::enlaceUrl($seccion["titulo"]) . '/" title="' . $seccion["titulo"] . '">General</a></li>';
+                    echo '<li><a href="noticias/' .  $base->enlaceUrl($seccion["titulo"]) . '/" title="' . $seccion["titulo"] . '">General</a></li>';
                     foreach ($seccion["secciones"] as $sub_seccion) {
-                        echo '<li><a href="noticias/' . Base::enlaceUrl($sub_seccion["titulo"]) . '/" title="' . $sub_seccion["titulo"] . '">' . $sub_seccion["titulo"] . '</a></li>';
+                        echo '<li><a href="noticias/' .  $base->enlaceUrl($sub_seccion["titulo"]) . '/" title="' . $sub_seccion["titulo"] . '">' . $sub_seccion["titulo"] . '</a></li>';
                     }
                     echo '</ul>';
                     echo '</li>';

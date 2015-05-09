@@ -46,7 +46,7 @@ sudo mysql -uroot -p1234 -e "CREATE DATABASE IF NOT EXISTS test"
 sudo mysql -uroot -p1234 -e "grant all privileges on test.* to 'root'@'%' identified by '1234'"
 
 #echo "Setting DATABASE"
-sudo mysql -uroot -p1234 < /vagrant/provision/sources/lector/docs/lector.sql
+sudo mysql -uroot -p1234 < /vagrant/sources/lector/docs/lector.sql
 sudo mysql -uroot -p1234 -e "grant all privileges on lector.* to 'root'@'%' identified by '1234'"
 
 # Apache Configuration SSL
@@ -94,13 +94,13 @@ sudo apt-get install phpmyadmin -y
 # Install MFP5-MVC (jh2odo)
 # New Install o Update
 cd /var/www
-sudo rm -r mfp5-mvc-master && sudo rm -r core && sudo rm -r demo && sudo rm master.zip
+sudo rm -rf mfp5-mvc-master && sudo rm -rf core && sudo rm -rf demo && sudo rm master.zip
 wget https://github.com/jh2odo/mfp5-mvc/archive/master.zip
-sudo unzip master.zip && cd mfp5-mvc-master/ && sudo mv * ../ && cd ..
-sudo rm -r mfp5-mvc-master && sudo rm master.zip
+sudo unzip master.zip && cd mfp5-mvc-master/ && sudo mv -f * ../ && cd ..
+sudo rm -rf mfp5-mvc-master && sudo rm -f master.zip
 
 #echo "Setting db Demo"
-sudo mysql -uroot -p1234 < /vagrant/provision/sources/demo/docs/demo.sql
+sudo mysql -uroot -p1234 < /vagrant/sources/demo/docs/demo.sql
 sudo mysql -uroot -p1234 -e "grant all privileges on demo.* to 'root'@'%' identified by '1234'"
 
 #sudo chmod -R 777 tmp/
