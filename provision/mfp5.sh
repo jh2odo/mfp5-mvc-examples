@@ -97,6 +97,11 @@ wget https://github.com/jh2odo/mfp5-mvc/archive/master.zip
 sudo unzip master.zip && cd sudo mfp5-mvc-master/ && sudo mv * ../ && cd ..
 sudo rm -r mfp5-mvc-master && sudo rm master.zip
 
+#echo "Setting db Demo"
+sudo mysql -uroot -p1234 -e "CREATE DATABASE demo"
+sudo mysql -uroot -p1234 -e "grant all privileges on demo.* to 'root'@'%' identified by '1234'"
+sudo mysql -uroot -p1234 lector < /vagrant/provision/sources/demo/docs/demo.sql
+
 #sudo chmod -R 777 tmp/
 
 # Restart Services Myslq and Apache
