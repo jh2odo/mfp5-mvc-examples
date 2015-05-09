@@ -39,14 +39,15 @@ echo "Remote Mysql Allow"
 sudo sed -i "s/bind-address/#bind-address/g" /etc/mysql/my.cnf
 sudo sed -i "s/skip-external-locking/#skip-external-locking/g" /etc/mysql/my.cnf
 
+sudo service mysql restart
+
 echo "Setting up our MySQL user and db"
-sudo mysql -uroot -p1234 -e "CREATE DATABASE test"
+sudo mysql -uroot -p1234 -e "CREATE DATABASE IF NOT EXISTS test"
 sudo mysql -uroot -p1234 -e "grant all privileges on test.* to 'root'@'%' identified by '1234'"
 
 #echo "Setting DATABASE"
-sudo mysql -uroot -p1234 -e "CREATE DATABASE lector"
+sudo mysql -uroot -p1234 < /vagrant/provision/sources/lector/docs/lector.sql
 sudo mysql -uroot -p1234 -e "grant all privileges on lector.* to 'root'@'%' identified by '1234'"
-sudo mysql -uroot -p1234 lector < /vagrant/provision/sources/lector/docs/lector.sql
 
 # Apache Configuration SSL
 sudo a2enmod ssl
@@ -93,14 +94,14 @@ sudo apt-get install phpmyadmin -y
 # Install MFP5-MVC (jh2odo)
 # New Install o Update
 cd /var/www
+sudo rm -r mfp5-mvc-master && sudo rm -r core && sudo rm -r demo && sudo rm master.zip
 wget https://github.com/jh2odo/mfp5-mvc/archive/master.zip
 sudo unzip master.zip && cd mfp5-mvc-master/ && sudo mv * ../ && cd ..
 sudo rm -r mfp5-mvc-master && sudo rm master.zip
 
 #echo "Setting db Demo"
-sudo mysql -uroot -p1234 -e "CREATE DATABASE demo"
+sudo mysql -uroot -p1234 < /vagrant/provision/sources/demo/docs/demo.sql
 sudo mysql -uroot -p1234 -e "grant all privileges on demo.* to 'root'@'%' identified by '1234'"
-sudo mysql -uroot -p1234 lector < /vagrant/provision/sources/demo/docs/demo.sql
 
 #sudo chmod -R 777 tmp/
 

@@ -19,13 +19,16 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 -- Base de datos: `lector`
 --
 
+CREATE DATABASE IF NOT EXISTS `lector`;
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `fuente`
 --
 
-CREATE TABLE IF NOT EXISTS `fuente` (
+DROP TABLE IF EXISTS `fuente`;
+CREATE TABLE `fuente` (
   `id_fuente`         INT(4)                  NOT NULL AUTO_INCREMENT,
   `titulo_fuente`     VARCHAR(35)
                       COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -236,7 +239,8 @@ VALUES
 -- Estructura de tabla para la tabla `medio`
 --
 
-CREATE TABLE IF NOT EXISTS `medio` (
+DROP TABLE IF EXISTS `medio`;
+CREATE TABLE `medio` (
   `id_medio`      INT(4)                  NOT NULL AUTO_INCREMENT,
   `titulo_medio`  VARCHAR(35)
                   COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -356,7 +360,8 @@ INSERT INTO `medio` (`id_medio`, `titulo_medio`, `url_medio`, `estado_medio`, `t
 -- Estructura de tabla para la tabla `pais`
 --
 
-CREATE TABLE IF NOT EXISTS `pais` (
+DROP TABLE IF EXISTS `pais`;
+CREATE TABLE `pais` (
   `id_pais`     INT(3)                    NOT NULL AUTO_INCREMENT,
   `codigo_pais` CHAR(2)
                 CHARACTER SET latin1
@@ -624,7 +629,8 @@ INSERT INTO `pais` (`id_pais`, `codigo_pais`, `nombre_pais`) VALUES
 -- Estructura de tabla para la tabla `seccion`
 --
 
-CREATE TABLE IF NOT EXISTS `seccion` (
+DROP TABLE IF EXISTS `seccion`;
+CREATE TABLE `seccion` (
   `id_seccion`         INT(4)                  NOT NULL AUTO_INCREMENT,
   `titulo_seccion`     VARCHAR(35)
                        COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
