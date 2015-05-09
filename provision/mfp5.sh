@@ -44,7 +44,9 @@ sudo mysql -uroot -p1234 -e "CREATE DATABASE test"
 sudo mysql -uroot -p1234 -e "grant all privileges on test.* to 'root'@'%' identified by '1234'"
 
 #echo "Setting DATABASE"
-#sudo mysql -uroot -p1234 test < /vagrant/provision/files/database.sql
+sudo mysql -uroot -p1234 -e "CREATE DATABASE lector"
+sudo mysql -uroot -p1234 -e "grant all privileges on lector.* to 'root'@'%' identified by '1234'"
+sudo mysql -uroot -p1234 lector < /vagrant/provision/sources/lector/docs/lector.sql
 
 # Apache Configuration SSL
 sudo a2enmod ssl
@@ -62,27 +64,28 @@ adduser vagrant root
 
 # Apache Configuration
 echo "Configuring Apache .dev"
-sudo cp /vagrant/provision/config/mfp5.dev /etc/apache2/sites-available/mfp5.dev > /dev/null
+sudo cp /vagrant/provision/mfp5.dev /etc/apache2/sites-available/mfp5.dev > /dev/null
 sudo a2ensite mfp5.dev
 sudo a2dissite default
 
-# echo 'phpmyadmin phpmyadmin/dbconfig-install boolean false' | debconf-set-selections
-# echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
+# Install PHPMyAdmin
+echo 'phpmyadmin phpmyadmin/dbconfig-install boolean false' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
 
-# echo 'phpmyadmin phpmyadmin/app-password-confirm password 1234' | debconf-set-selections
-# echo 'phpmyadmin phpmyadmin/mysql/admin-pass password 1234' | debconf-set-selections
-# echo 'phpmyadmin phpmyadmin/password-confirm password 1234' | debconf-set-selections
-# echo 'phpmyadmin phpmyadmin/setup-password password 1234' | debconf-set-selections
-# echo 'phpmyadmin phpmyadmin/database-type select mysql' | debconf-set-selections
-# echo 'phpmyadmin phpmyadmin/mysql/app-pass password 1234' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/app-password-confirm password 1234' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/admin-pass password 1234' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/password-confirm password 1234' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/setup-password password 1234' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/database-type select mysql' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/app-pass password 1234' | debconf-set-selections
 
-# echo 'dbconfig-common dbconfig-common/mysql/app-pass password 1234' | debconf-set-selections
-# echo 'dbconfig-common dbconfig-common/password-confirm password 1234' | debconf-set-selections
-# echo 'dbconfig-common dbconfig-common/app-password-confirm password 1234' | debconf-set-selections
-# echo 'dbconfig-common dbconfig-common/app-password-confirm password 1234' | debconf-set-selections
-# echo 'dbconfig-common dbconfig-common/password-confirm password 1234' | debconf-set-selections
+echo 'dbconfig-common dbconfig-common/mysql/app-pass password 1234' | debconf-set-selections
+echo 'dbconfig-common dbconfig-common/password-confirm password 1234' | debconf-set-selections
+echo 'dbconfig-common dbconfig-common/app-password-confirm password 1234' | debconf-set-selections
+echo 'dbconfig-common dbconfig-common/app-password-confirm password 1234' | debconf-set-selections
+echo 'dbconfig-common dbconfig-common/password-confirm password 1234' | debconf-set-selections
 
-# apt-get install phpmyadmin -y
+sudo apt-get install phpmyadmin -y
 
 # sudo service apache2 restart
 # sudo service mysql restart
@@ -96,6 +99,7 @@ sudo rm -r mfp5-mvc-master && sudo rm master.zip
 
 #sudo chmod -R 777 tmp/
 
+# Restart Services Myslq and Apache
 sudo service mysql restart
 sudo service apache2 restart
 
