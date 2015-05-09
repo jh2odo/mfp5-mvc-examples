@@ -24,7 +24,7 @@ Código fuente: [https://github.com/jh2odo/mfp5-mvc](https://github.com/jh2odo/m
 
 ## DEMOS
 
-- [Lector y comparador de noticias (RSS)](https://github.com/jh2odo/mfp5-mvc-examples/sources/lector "Lector RSS con MFP5")
+- [Lector y comparador de noticias (RSS)](https://github.com/jh2odo/mfp5-mvc-examples/sources/lector "Lector RSS con MFP5") - Ejemplo real: www.prensaseria.net
 - *Blog [PRÓXIMAMENTE]*
 
 ## EJEMPLOS *[PRÓXIMAMENTE]*

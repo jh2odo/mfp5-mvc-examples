@@ -1,0 +1,400 @@
+@media projection, screen {
+    .ui-tabs-hide {
+        display: none !important;
+    }
+}
+
+@media print {
+    .ui-tabs-nav {
+        display: none;
+    }
+}
+
+.ui-tabs-nav, .ui-tabs-panel {
+    font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.ui-tabs-nav {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 3px;
+    width: 162px;
+    text-align: left;
+}
+
+.ui-tabs-nav:after {
+    display: block;
+    clear: both;
+    content: " ";
+}
+
+.ui-tabs-nav li {
+    margin: 0 0 0 0;
+    font-weight: bold;
+    display: block;
+    clear: both;
+}
+
+.ui-tabs-nav a {
+    width: 150px;
+}
+
+.ui-tabs-nav a, .ui-tabs-nav a span {
+    float: left;
+    padding: 0 12px;
+    background: url(../imagenes/tabs.png) no-repeat;
+}
+
+.ui-tabs-nav a {
+    margin: 2px 0 2px;
+    padding-left: 0;
+    background-position: 100% 0;
+    text-decoration: none;
+    white-space: nowrap;
+    outline: 0;
+}
+
+.ui-tabs-nav a:link, .ui-tabs-nav a:visited {
+    color: #2E00EE;
+}
+
+.ui-tabs-nav a:hover {
+    color: #50A029;
+}
+
+.ui-tabs-nav .ui-tabs-selected a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    margin-top: 0;
+    background-position: 100% -23px;
+    color: #50A029;
+}
+
+.ui-tabs-selected a:hover {
+    color: #50A029;
+}
+
+.ui-tabs-nav a span {
+    padding-top: 1px;
+    padding-right: 0;
+    height: 20px;
+    background-position: 0 0;
+    line-height: 20px;
+}
+
+.ui-tabs-nav .ui-tabs-selected a span {
+    padding-top: 0;
+    height: 27px;
+    background-position: 0 -23px;
+    line-height: 27px;
+}
+
+.ui-tabs-nav .ui-tabs-selected a:link, .ui-tabs-nav .ui-tabs-selected a:visited, .ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited {
+    cursor: text;
+}
+
+.ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active, .ui-tabs-nav .ui-tabs-unselect a:hover, .ui-tabs-nav .ui-tabs-unselect a:focus, .ui-tabs-nav .ui-tabs-unselect a:active {
+    cursor: pointer;
+}
+
+.ui-tabs-disabled {
+    opacity: .4;
+}
+
+.ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited {
+    color: #000;
+}
+
+.ui-tabs-panel {
+    float: right;
+    margin-right: 0px;
+    width: 753px;
+    min-height: 300px;
+    border: 1px solid #519e2d;
+    padding: 10px;
+    padding-bottom: 50px;
+    color: black;
+    font-size: medium;
+    background: transparent url(../imagenes/bg_barra.png) no-repeat;
+    background-color: #f7faef;
+    background-position: top center;
+    position: relative;
+}
+
+.ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(../imagenes/cargando_azul_16.gif) no-repeat 0 50%;
+}
+
+* html .ui-tabs-nav {
+    display: inline-block;
+}
+
+*:first-child + html .ui-tabs-nav {
+    display: inline-block;
+}
+
+.ui-tabs-nav .tab-alto {
+    height: 43px;
+    white-space: normal;
+    background-position: 100% -50px;
+}
+
+.ui-tabs-nav .ui-tabs-selected .tab-alto {
+    height: 51px;
+    white-space: normal;
+    background-position: 100% -95px;
+}
+
+.ui-tabs-nav .tab-alto span {
+    height: 43px;
+    background-position: 0 -50px;
+}
+
+.ui-tabs-nav .ui-tabs-selected .tab-alto span {
+    height: 51px;
+    white-space: normal;
+    background-position: 0 -95px;
+    margin-right: 20px;
+    line-height: 22px;
+    padding-top: 2px;
+}
+
+.ui-tabs-nav .tab-puntos-vista {
+    height: 45px;
+    white-space: normal;
+    background-position: 100% -148px;
+    margin-bottom: 15px;
+}
+
+.ui-tabs-nav .ui-tabs-selected .tab-puntos-vista {
+    height: 51px;
+    white-space: normal;
+    background-position: 100% -95px;
+}
+
+.ui-tabs-nav .tab-puntos-vista span {
+    height: 45px;
+    background-position: 0 -148px;
+    color: black;
+}
+
+.ui-tabs-nav .ui-tabs-selected .tab-puntos-vista span {
+    height: 51px;
+    white-space: normal;
+    background-position: 0 -95px;
+    margin-right: 15px;
+    line-height: 22px;
+    padding-top: 2px;
+    color: black;
+}
+
+.ui-tabs-nav .tab-puntos-vista sub {
+    color: red;
+}
+
+.ui-tabs-nav .ui-tabs-selected .tab-puntos-vista sub {
+    color: yellow;
+}
+
+#cargando {
+    position: absolute;
+    z-index: 100;
+    left: 460px;
+    top: 220px;
+    display: none;
+    text-align: center;
+    padding: 20px;
+    padding-left: 50px;
+    font-size: 40px;
+    background-image: url(../imagenes/cargando_azul_48.gif);
+    background-repeat: no-repeat;
+    background-position: left;
+    color: black;
+}
+
+.pagina_siguiente_activa {
+    color: yellow;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pagina_anterior_activa {
+    color: yellow;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pagina_siguiente, .pagina_anterior {
+    color: white;
+    text-decoration: none;
+}
+
+.noticia {
+    clear: both;
+    font-size: 16px;
+}
+
+.diario_barra {
+    color: black;
+}
+
+.diario_barra a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.diario_barra span {
+    color: yellow;
+    font-size: 16px;
+}
+
+.diario_barra_top {
+    text-align: center;
+    clear: both;
+    font-size: 16px;
+}
+
+.diario_barra_bottom {
+    position: absolute;
+    height: 30px;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    background: url(../imagenes/bg_barra_bottom.png) no-repeat;
+    background-position: bottom center;
+    bottom: 0px;
+    right: 86px;
+    width: 600px;
+    font-size: 16px;
+}
+
+.medio_logo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 110px;
+}
+
+.medio_titulo {
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 150px;
+    margin-bottom: 15px;
+    clear: both;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.medio_titulo a {
+    text-decoration: none;
+}
+
+.medio_copyright {
+    font-size: small;
+    font-weight: lighter;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.medio_actualizacion {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 15px;
+    clear: both;
+    font-size: 12px;
+}
+
+.medio_actualizacion span {
+    color: red;
+}
+
+.noticia_titulo {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #1067ca;
+    padding-bottom: 8px;
+    padding-left: 30px;
+    background: url(../imagenes/periodico_chico.png) no-repeat left top;
+    font-size: 14px;
+}
+
+.noticia_titulo span {
+    padding-right: 15px;
+    color: black;
+}
+
+.noticia_titulo a {
+    color: #1067ca;
+}
+
+.noticia_fecha {
+    padding-right: 30px;
+    font-style: italic;
+    font-family: monospace;
+    margin-bottom: 15px;
+    text-align: right;
+    font-size: 12px;
+}
+
+.noticias_fecha {
+    clear: both;
+    padding-right: 30px;
+    font-style: italic;
+    font-family: monospace;
+    margin-bottom: 15px;
+    text-align: right;
+    font-size: 12px;
+}
+
+.noticia_contenido {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#diario-0 h2, #diario-0 h4 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: normal;
+    color: #006EA6;
+    text-align: center;
+    font-size: 26px;
+    padding-top: 50px;
+}
+
+#ir_principio {
+    position: absolute;
+    left: 60px;
+    bottom: 30px;
+    width: 100px;
+    height: 30px;
+    text-align: right;
+    z-index: 100;
+}
+
+.noticias_informacion {
+    float: left;
+    width: 160px;
+    margin: 0px;
+    margin-left: -5px;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.noticias_informacion h4 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.noticias_informacion p {
+    text-align: left;
+}

@@ -1,0 +1,36 @@
+# Options All and FollowSymLinks are disabled on this server.
+# FollowSymLinks is automatically replaced to SymLinksIfOwnerMatch, All is changed heuristically.
+Options SymLinksIfOwnerMatch Includes -Indexes
+
+AddDefaultCharset utf-8
+DefaultLanguage es-ES
+
+# Pagina por defecto
+DirectoryIndex index.html index.php
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+## El error 404 no es necesario porque para cualquier pagina va hacia el controlador frontal.
+ErrorDocument 404 /lector/error/e404/
+ErrorDocument 403 /lector/error/e403/
+ErrorDocument 500 /lector/error/e500/
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+#RewriteBase /
+RewriteBase /lector/
+
+# Nos permite poner directamente imagenes/ en vez de app/imagenes
+RewriteRule ^imagenes/(.*)$		estaticos/imagenes/$1 [L,NC]
+RewriteRule ^css/(.*)$		estaticos/css/$1 [L,NC]
+RewriteRule ^js/(.*)$		estaticos/js/$1 [L,NC]
+
+RewriteCond $1 !^(index\.php|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?$1 [L,NC]
+</IfModule>
+

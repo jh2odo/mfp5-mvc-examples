@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /noticias/lector/
+Disallow: /css/
+Disallow: /js/
+Disallow: /imagenes/
+Disallow: /index.php

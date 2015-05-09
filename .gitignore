@@ -1,5 +1,5 @@
 .idea
 .vagrant
 sources/todo
-sources/lector
-
+sources/core
+sources/demo
